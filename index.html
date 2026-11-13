@@ -1,0 +1,1822 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bentham&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+    <style>
+        * {
+                 box-sizing: border-box;
+}
+
+        body {
+            margin: 0;
+            font-size: 14px;
+            color: #444;
+            line-height: 1.5;
+            font-family:Arial, Helvetica, sans-serif ;
+        }
+
+        img {
+            max-width: 100%;
+        }
+
+        input, button, label {
+            font-family: inherit;
+        }
+
+        input[type="submit"] {
+            background: #a6192e;
+            color: #fff;
+            border: none;
+            border-radius: 20px;
+            padding: 10px 20px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            cursor: pointer;
+        }
+
+   
+
+        .firstrow {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #ddd;
+            padding: 4px 40px;
+            font-size: 10px;
+        }
+        .first {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .photo1 {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            height: 24px;
+        }
+        .photo1 img {
+            width: 18px;
+            height: 18px;
+            object-fit: contain;
+        }
+        .sec {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .secrow {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 50px;
+            padding: 12px 40px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, .1);
+            font-size: 10px;
+            font-weight: 700;
+        }
+        .left > div {
+            display: inline-block;
+            font-weight: 800;
+            font-size: 18px;
+            color: #a6192e;
+            border: 2px solid #a6192e;
+            border-radius: 14px;
+            padding: 0 10px;
+        }
+        .left img {
+            display: none;
+        }
+        .right {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+        }
+        .right div:last-child {
+            background: #a6192e;
+            color: #fff;
+            padding: 8px 16px;
+            border-radius: 20px;
+        }
+
+        .thirdrow {
+            position: relative;
+            height: 410px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            color: #fff;
+            text-align: center;
+        }
+        .thirdrow .photo {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(rgba(0,0,0,.18), rgba(0,0,0,.18)),
+                        linear-gradient(135deg, #c9c3bd, #8d857e);
+            
+        }
+        .thirdrow .photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .thirdrow .text,
+        .thirdrow input {
+            position: relative;
+            z-index: 1;
+        }
+        .thirdrow .text {
+            font-size: 26px;
+            font-weight: 600;
+            line-height: 1.25;
+            max-width: 400px;
+            text-shadow: 0 1px 4px rgba(0, 0, 0, .4);
+        }
+
+      
+        .fourthrow {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+            background: #2b3544;
+            color: #fff;
+            padding: 12px;
+        }
+        .fourthrow input[type="text"] {
+            width: 90px;
+            padding: 6px;
+            font-size: 9px;
+            border: none;
+        }
+        .text1 {
+            font-size: 9px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+        .fourthrow .text1:last-child {
+            background: #a6192e;
+            padding: 7px 20px;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+      
+        .fifthrow {
+            position: relative;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 50px 20px;
+            text-align: center;
+        }
+      
+        .fifthrow > img {
+            position: absolute;
+            top: 50px;
+            left: 88px;
+            width: 60px;
+            height: 60px;
+            object-fit: contain;
+        }
+        .fifthrow > .box:first-of-type {
+            padding-top: 70px;
+        }
+        .box img {
+            display: block;
+            width: 60px;
+            height: 60px;
+            object-fit: contain;
+            margin: 0 auto 10px;
+        }
+        .box h1 {
+            font-size: 12px;
+            font-weight: 600;
+            color: #333;
+            margin: 0 0 8px;
+        }
+        .box p {
+            font-size: 10px;
+            color: #666;
+        }
+
+     
+        .sixthrow {
+            --pad: max(20px, calc((100% - 1060px) / 2));
+            position: relative;
+            height: 340px;
+        }
+        .sixthrow .photo {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, #e8e4df, #bfb6ac);
+           
+        }
+        .sixthrow .photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .text2 {
+            position: absolute;
+            top: 45px;
+            left: var(--pad);
+            width: 340px;
+            height: 250px;
+            background: #fff;
+            padding: 24px 26px 70px;
+            box-shadow: 0 4px 18px rgba(0, 0, 0, .2);
+            overflow: hidden;
+        }
+        .text2 h2 {
+            font-size: 17px;
+            line-height: 1.3;
+            color: #333;
+            margin: 0 0 10px;
+        }
+        .text2 p {
+            font-size: 11px;
+        }
+        .sixthrow input[type="submit"] {
+            position: absolute;
+            top: 243px;
+            left: calc(var(--pad) + 26px);
+        }
+
+        :root {
+    --red: #a6192e;
+    --navy: #3d4b5a;
+    --slate: #36414f;
+    --gray-bg: #f7f7f7;
+    --line: #9a9a9a;
+    --blue: #7fb0c4;
+    --hatch: repeating-linear-gradient(135deg, #cfcfcf 0 1px, transparent 1px 4px);
+}
+ 
+body {
+    overflow-x: hidden;
+}
+h2, h3, h4 {
+    margin: 0;
+}
+ 
+/* ---------- shared pieces ---------- */
+.ph {
+    background: linear-gradient(135deg, #e8e4df, #bfb6ac);
+}
+.ph img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+ 
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    height: 38px;
+    padding: 0 22px;
+    background: var(--red);
+    color: #fff;
+    border-radius: 19px;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    line-height: 1;
+    cursor: pointer;
+    white-space: nowrap;
+}
+.link-red {
+     color: var(--red); 
+     font-size: 11px; 
+     font-weight: 600;
+      text-decoration: none; 
+      white-space: nowrap;
+     }
+ 
+.section-title { 
+    display: flex; 
+    align-items: center; 
+    gap: 19px;
+     padding-left: 48px;
+     }
+.section-title h2 {
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 38px;
+    letter-spacing: -.4px;
+    color: var(--navy);
+    white-space: nowrap;
+}
+.section-title .line { flex: 1; 
+    height: 1px; 
+    background: var(--line);
+ }
+ 
+/* every new section is a centered 1060px column */
+.eighthrow, .ninthrow, .tenthrow, .eleventhrow, .twelfthrow, .thirteenthrow {
+    position: relative;
+    isolation: isolate;
+    max-width: 1060px;
+    margin: 0 auto;
+}
+ 
+/* ---------- 7. review logos (add the HTML snippet if you want this row) ---------- */
+.seventhrow {
+     display: flex; 
+    justify-content: center; 
+    padding: 56px 20px;
+ }
+.rating { 
+    width: 218px;
+     text-align: center; 
+    }
+.rating .stars { color: var(--blue);
+     font-size: 16px;
+      letter-spacing: 2px; 
+      line-height: 1;
+       margin-bottom: 6px;
+        min-height: 16px;
+     }
+.rating img { 
+    height: 32px; 
+    width: auto; 
+    margin: 0 auto;
+     display: block; }
+ 
+/* ---------- 8. testimonial ---------- */
+.eighthrow {
+    height: 514px;
+}
+.eighthrow::before {                       
+    content: "";
+    position: absolute;
+    z-index: -1;
+    right: -18px;
+    top: 18px;
+    width: 764px;
+    bottom: 0;
+    background: var(--gray-bg);
+    clip-path: polygon(100% 0, 100% 100%, 0 100%);
+}
+.eighthrow .ph {
+     position: absolute; 
+    left: 0; 
+    top: 0;
+     width: 692px;
+      height: 478px; 
+    }
+ 
+.quote-card {
+    position: absolute;
+    top: 123px;
+    left: calc(50% - 43px);
+    width: 547px;
+    height: 233px;
+    padding: 34px 38px;
+    background: #fff;
+    border: 1px solid var(--line);
+}
+.quote-card::before {                      /* quote mark */
+    content: "\201C";
+    display: block;
+    height: 16px;
+    font: 700 34px/0.8 Georgia, serif;
+    color: #bcd6e0;
+}
+.quote-card::after {                       /* hatch shadow */
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 10px; left: 10px; right: -10px; bottom: -10px;
+    background: var(--hatch);
+}
+.quote-card .stars {
+    margin-top: 14px;
+    font-size: 8px;
+    line-height: 1;
+    letter-spacing: 1px;
+    color: var(--navy);
+}
+.quote-card .stars::before {
+    content: "REVIEWS\00a0";
+    color: var(--red);
+    font-weight: 700;
+    letter-spacing: 0;
+}
+.quote-card blockquote {
+    margin: 8px 0 6px;
+    font-size: 15.5px;
+    font-style: italic;
+    line-height: 26px;
+    color: #555;
+}
+.quote-card cite { 
+    font-size: 11px;
+     font-style: normal; 
+     color: #666; 
+    }
+.dots { 
+    display: flex; 
+    gap: 5px; 
+    margin-top: 10px;
+ }
+.dots span { 
+    width: 6px;
+     height: 6px;
+      border-radius: 50%;
+       background: #c5dbe3;
+     }
+.dots span:nth-child(3) {
+    background: var(--red);
+}
+ 
+.eighthrow > .btn { 
+    position: absolute;
+     top: 414px; left: calc(50% + 384px); 
+     width: 138px;
+     }
+ 
+/* ---------- 9. gallery ---------- */
+.ninthrow {
+    padding: 46px 0 96px;
+}
+.gallery {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(4, 226px);
+    gap: 18px 16px;
+    width: 952px;
+    margin: 36px 0 0 46px;
+}
+.gallery .ph { width: 226px; 
+    height: 226px;
+ }
+.gallery::before {                         /* thin frame behind the photos */
+    content: "";
+    position: absolute;
+    z-index: -1;
+    left: 33px;
+    top: -27px;
+    width: 967px;
+    bottom: -62px;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-top: none;
+}
+.gallery::after {                          /* hatch offset */
+    content: "";
+    position: absolute;
+    z-index: -2;
+    left: 43px;
+    top: -17px;
+    width: 967px;
+    bottom: -72px;
+    background: var(--hatch);
+}
+ 
+/* ---------- 10. remodel options ---------- */
+.tenthrow {
+    text-align: center;
+    padding: 60px 0 48px;
+}
+.tenthrow::before {                        /* gray shape */
+    content: "";
+    position: absolute;
+    z-index: -1;
+    left: 26px;
+    width: 768px;
+    top: 80px;
+    bottom: 0;
+    background: var(--gray-bg);
+    clip-path: polygon(0 0, 37% 37%, 100% 37%, 100% 100%, 0 100%);
+}
+.tenthrow h2 { font-size: 32px;
+     font-weight: 700;
+      line-height: 38px; 
+      letter-spacing: -.4px; 
+      color: var(--navy); 
+    }
+.tenthrow .sub { margin: 12px 0 0;
+     font-size: 11px; 
+     line-height: 20px; 
+     color: #555; 
+    }
+ 
+.tabs { display: flex;
+     justify-content: center; 
+     align-items: flex-start; 
+     margin: 56px 0 50px; 
+    }
+.tab {
+    position: relative;
+    width: 167px;
+    font-size: 8.5px;
+    font-weight: 700;
+    line-height: 11px;
+    text-transform: uppercase;
+    color: var(--red);
+}
+.tab + .tab::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 26px;
+    width: 1px;
+    height: 11px;
+    background: var(--line);
+}
+.tab .icon {
+     width: 37px; 
+    height: 37px; 
+    margin: 0 auto 16px; 
+    border: 2px solid currentColor;
+     border-radius: 50%; }
+.tab.active {
+    color: var(--blue);
+}
+ 
+.options-wrap { 
+    position: relative; 
+    height: 520px; 
+    text-align: left; 
+}
+.options-wrap::after {                    
+    
+    position: absolute;
+    left: 62px;
+    top: 507px;
+    font-size: 12px;
+    line-height: 1;
+    color: #888;
+}
+.options-wrap .ph {
+     position: absolute;
+     top: 0; 
+     right: 29px; 
+     width: 589px;
+     height: 520px;
+     }
+.options-card {
+    position: absolute;
+    left: 62px;
+    top: 67px;
+    width: 560px;
+    height: 386px;
+    padding: 40px 48px;
+    background: #fff;
+    border: 1px solid var(--line);
+    display: flow-root;
+}
+.options-card::before {                    /* wrench stand-in */
+    content: "";
+    display: block;
+    width: 22px;
+    height: 5px;
+    margin: 6px 0 16px 2px;
+    background: var(--blue);
+    border-radius: 3px;
+    transform: rotate(-45deg);
+}
+.options-card::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 10px; left: 10px; right: -10px; bottom: -10px;
+    background: var(--hatch);
+}
+.options-card h3 {
+     font-size: 21px; 
+     font-weight: 700;
+      line-height: 1.35;
+       color: var(--navy); 
+       margin-bottom: 12px; 
+    }
+.options-card p { 
+    margin: 0 0 22px; 
+    font-size: 11px;
+     line-height: 22px;
+      color: #555;
+     }
+.options-card .btn {
+     float: left;
+     height: 35px;
+      padding: 0 18px 0 8px; 
+      font-size: 9px; 
+    }
+.options-card .btn::before {
+    content: "\25B6";
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 19px;
+    height: 19px;
+    border-radius: 50%;
+    background: #fff;
+    color: var(--red);
+    font-size: 7px;
+    padding-left: 1px;
+}
+.options-card .link-red {
+    float: right;
+    line-height: 35px;
+}
+ 
+/* ---------- 11. tips & trends ---------- */
+.eleventhrow {
+    padding: 53px 0 40px;
+}
+.posts {
+    display: grid;
+    grid-template-columns: repeat(3, 305px);
+    gap: 19px;
+    margin: 43px 0 0 46px;
+}
+.post .ph {
+    height: 209px;
+}
+.post .body {
+    padding: 24px 16px 0;
+}
+.post .cat { 
+    margin-bottom: 6px;
+     font-size: 8.5px;
+      line-height: 12px;
+       text-transform: uppercase; 
+       color: #777;
+     }
+.post h4 {
+     margin-bottom: 11px; 
+     font-size: 14.5px; 
+     font-weight: 700; 
+     line-height: 1.4; 
+     color: var(--navy); 
+    }
+.post p { margin: 0 0 11px; 
+    font-size: 11px; 
+    line-height: 22px; 
+    color: #555; 
+}
+.post .link-red {
+    font-size: 10.5px;
+}
+ 
+
+
+.twelfthrow {
+    padding: 74px 0 139px;
+}
+.twelfthrow::before {                  
+    content: "";
+    position: absolute;
+    z-index: -1;
+    right: -18px;
+    top: -61px;
+    width: 764px;
+    height: 639px;
+    background: var(--gray-bg);
+    clip-path: polygon(100% 0, 100% 100%, 0 100%);
+}
+.trusted-box {
+    position: relative;
+    width: 966px;
+    height: 448px;
+    margin-left: 63px;
+    background: #fff;
+    border: 1px solid var(--line);
+}
+.trusted-box::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 10px; left: 10px; right: -10px; bottom: -10px;
+    background: var(--hatch);
+}
+.trusted-box h2 {
+    position: absolute;
+    left: -32px;
+    top: 56px;
+    width: 320px;
+    padding: 4px 0;
+    background: #fff;
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 45px;
+    color: var(--navy);
+}
+.badges {
+    position: absolute;
+    left: 343px;
+    top: 66px;
+    width: 576px;
+    display: grid;
+    grid-template-columns: repeat(3, 192px);
+    gap: 40px 0;
+    justify-items: center;
+    align-items: center;
+}
+.badge {
+    width: 88px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--navy);
+    border-radius: 6px;
+    font-size: 7px;
+    font-weight: 800;
+    line-height: 1.1;
+    color: var(--navy);
+    text-align: center;
+}
+.badge:nth-child(n+4) { 
+    height: 76px; 
+    width: 80px;
+ }
+.badge:nth-child(7) {
+     grid-column: 2;
+      height: 128px; 
+    }
+ 
+/* ----------  share the love ---------- */
+.thirteenthrow {
+    padding-bottom: 105px;
+}
+.share-box {
+    position: relative;
+    width: 966px;
+    height: 254px;
+    margin-left: 63px;
+    background: #fff;
+    border: 1px solid var(--line);
+}
+.share-box::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 10px; left: 10px; right: -10px; bottom: -10px;
+    background: var(--hatch);
+}
+.share-box h2 {
+    position: absolute;
+    left: -32px;
+    top: 32px;
+    width: 288px;
+    padding: 4px 0;
+    background: #fff;
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 45px;
+    color: var(--navy);
+}
+.share-box .ph { 
+    position: absolute; 
+    left: 328px; 
+    top: 46px;
+     width: 242px;
+      height: 154px; 
+    }
+.share-box > div:last-child {
+     position: absolute;
+      left: 600px; 
+      top: 50px; 
+      width: 304px; 
+      text-align: center; 
+    }
+.share-box p { 
+    margin: 0 0 11px; 
+    font-size: 13px; 
+    line-height: 1.7; 
+    color: #555;
+ }
+.share-box .btn {
+    width: 184px;
+}
+ 
+/* ---------- 14. footer ---------- */
+.footer { position: relative;
+     height: 275px; 
+     padding-top: 37px; 
+     background: var(--slate); 
+     color: #fff;
+     }
+.footer-inner {
+    position: relative;
+    display: grid;
+    grid-template-columns: 240px 213px 239px 1fr;
+    max-width: 1060px;
+    margin: 0 auto;
+}
+.footer .logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 35px;
+    border: 3px solid #fff;
+    border-radius: 20px;
+    font-size: 19px;
+    font-weight: 800;
+    font-style: italic;
+    letter-spacing: -1px;
+    line-height: 1;
+}
+.footer .tag {
+    margin: 6px 0 0;
+    font-size: 9px;
+    font-weight: 700;
+    line-height: 11px;
+}
+.social {
+    display: flex;
+    gap: 5px;
+    margin-top: 46px;
+}
+.social span {
+    width: 32px;
+    height: 32px;
+    border: 1px solid #fff;
+    border-radius: 50%;
+}
+ 
+.footer ul {
+    list-style: none;
+    margin: 8px 0 0;
+    padding: 0;
+}
+.footer li {
+    margin-bottom: 24px;
+    font-size: 9px;
+    font-weight: 700;
+    line-height: 12px;
+    text-transform: uppercase;
+}
+.footer li.phone {                          /* sits under the logo, as in the PDF */
+    position: absolute;
+    left: 0;
+    top: 55px;
+    margin: 0;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 24px;
+    text-transform: none;
+    white-space: nowrap;
+}
+ 
+.newsletter label { 
+    display: block; 
+    margin-bottom: 19px; 
+    font-size: 10.5px; 
+    font-weight: 700; 
+    line-height: 13px; 
+}
+.newsletter .row {
+     display: flex; 
+     width: 366px;
+      max-width: 100%;
+     }
+.newsletter input[type="email"] {
+    flex: 1;
+    min-width: 0;
+    height: 40px;
+    padding: 0 25px;
+    border: none;
+    border-radius: 20px 0 0 20px;
+    font-size: 11px;
+    color: #555;
+}
+.newsletter .go {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 91px;
+    height: 40px;
+    background: var(--red);
+    border-radius: 0 20px 20px 0;
+    font-size: 9.5px;
+    font-weight: 700;
+}
+.copyright {
+    position: absolute;
+    top: 184px;
+    right: max(20px, calc(50% - 530px));
+    font-size: 9.5px;
+    line-height: 1;
+    color: #9ca6b3;
+}
+
+
+    @media (max-width: 1100px) {
+ 
+    /* ---------- top bar + nav ---------- */
+    .firstrow {
+        padding: 6px 20px;
+        flex-wrap: wrap;
+        gap: 6px 20px;
+    }
+    .secrow {
+        padding: 12px 20px;
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+    .right {
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        gap: 10px 20px;
+    }
+ 
+    /* ---------- hero + form bar ---------- */
+    .thirdrow {
+        padding: 0 24px;
+    }
+    .fourthrow {
+        flex-wrap: wrap;
+        gap: 8px;
+        padding: 14px 20px;
+    }
+    .fourthrow .text1:first-child {
+        width: 100%;
+        text-align: center;
+    }
+    .fourthrow label {
+        flex: 1 1 130px;
+    }
+    .fourthrow input[type="text"] {
+        flex: 1 1 130px;
+        width: 100%;
+        padding: 8px;
+        font-size: 12px;
+    }
+ 
+    /* ---------- four features ---------- */
+    .fifthrow {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px 30px;
+        padding: 40px 24px;
+    }
+    /* the loose first icon is absolutely placed — draw it inside box 1 instead */
+    .fifthrow > img {
+        display: none;
+    }
+    .fifthrow > .box:first-of-type {
+        padding-top: 0;
+    }
+    .fifthrow > .box:first-of-type::before {
+        content: "";
+        display: block;
+        width: 60px;
+        height: 60px;
+        margin: 0 auto 10px;
+        background: url("images/Screenshot 2026-11-03 163843.png") center / contain no-repeat;
+    }
+    .box p {
+        font-size: 12px;
+        max-width: 340px;
+        margin: 0 auto;
+    }
+    .box h1 {
+        font-size: 14px;
+    }
+ 
+    /* ---------- "Ready for a change" ---------- */
+    .sixthrow {
+        height: auto;
+        display: flex;
+        flex-direction: column;
+    }
+    .sixthrow .photo {
+        position: relative;
+        inset: auto;
+        height: 260px;
+    }
+    .text2 {
+        position: relative;
+        top: auto;
+        left: auto;
+        width: auto;
+        height: auto;
+        overflow: visible;
+        margin: -50px 24px 0;
+        padding: 24px 26px 70px;
+    }
+    .text2 p {
+        font-size: 12px;
+        line-height: 1.7;
+    }
+    .sixthrow input[type="submit"] {
+        position: relative;
+        top: auto;
+        left: auto;
+        z-index: 2;
+        align-self: flex-start;
+        margin: -52px 0 40px 50px;
+    }
+ 
+    /* ---------- review logos ---------- */
+    .seventhrow {
+        flex-wrap: wrap;
+        gap: 24px 10px;
+        padding: 40px 20px;
+    }
+    .rating {
+        width: calc(33.33% - 10px);
+    }
+ 
+    /* ---------- testimonial ---------- */
+    .eighthrow {
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        padding: 0 24px 48px;
+    }
+    .eighthrow::before {
+        right: 0;
+        width: 70%;
+        top: 80px;
+    }
+    .eighthrow .ph {
+        position: static;
+        width: 100%;
+        height: 340px;
+    }
+    .quote-card {
+        position: relative;
+        top: auto;
+        left: auto;
+        width: auto;
+        height: auto;
+        margin: -60px 20px 0 40px;
+        padding: 30px 32px 34px;
+    }
+    .eighthrow > .btn {
+        position: static;
+        width: auto;
+        align-self: flex-end;
+        margin-top: 28px;
+        padding: 0 24px;
+    }
+ 
+    /* ---------- gallery ---------- */
+    .ninthrow {
+        padding: 40px 24px 60px;
+    }
+    .section-title {
+        padding-left: 0;
+    }
+    .section-title h2 {
+        font-size: 26px;
+        line-height: 1.2;
+    }
+    .gallery {
+        width: auto;
+        margin: 28px 0 0;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 14px;
+    }
+    .gallery .ph {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 1 / 1;
+    }
+    .gallery::before, .gallery::after {
+        display: none;
+    }
+ 
+    /* ---------- remodel options ---------- */
+    .tenthrow {
+        padding: 48px 24px;
+    }
+    .tenthrow::before {
+        display: none;
+    }
+    .tenthrow h2 {
+        font-size: 26px;
+        line-height: 1.2;
+    }
+    .tabs {
+        margin: 36px 0 32px;
+    }
+    .options-wrap {
+        height: auto;
+    }
+    .options-wrap::after {
+        display: none;
+    }
+    .options-wrap .ph {
+        position: static;
+        width: 100%;
+        height: 320px;
+    }
+    .options-card {
+        position: relative;
+        top: auto;
+        left: auto;
+        width: auto;
+        height: auto;
+        margin: -60px 20px 0;
+        padding: 32px 28px;
+    }
+    .options-card p {
+        font-size: 12px;
+        line-height: 1.8;
+    }
+ 
+    /* ---------- tips & trends ---------- */
+    .eleventhrow {
+        padding: 40px 24px;
+    }
+    .posts {
+        grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+        gap: 24px 18px;
+        margin: 28px 0 0;
+    }
+    .post .ph {
+        height: auto;
+        aspect-ratio: 16 / 11;
+    }
+    .post .body {
+        padding: 18px 4px 0;
+    }
+    .post p {
+        font-size: 12px;
+    }
+ 
+    /* ---------- most trusted ---------- */
+    .twelfthrow {
+        padding: 40px 24px 50px;
+    }
+    .twelfthrow::before {
+        display: none;
+    }
+    .trusted-box {
+        width: auto;
+        height: auto;
+        margin: 0;
+        padding: 32px 28px;
+    }
+    .trusted-box h2 {
+        position: static;
+        width: auto;
+        padding: 0;
+        background: none;
+        font-size: 26px;
+        line-height: 1.3;
+    }
+    .badges {
+        position: static;
+        width: auto;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px 12px;
+        margin-top: 28px;
+    }
+ 
+    /* ---------- share the love ---------- */
+    .thirteenthrow {
+        padding: 0 24px 60px;
+    }
+    .share-box {
+        width: auto;
+        height: auto;
+        margin: 0;
+        padding: 28px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        text-align: center;
+    }
+    .share-box h2 {
+        position: static;
+        width: auto;
+        padding: 0;
+        background: none;
+        font-size: 26px;
+        line-height: 1.3;
+    }
+    .share-box .ph {
+        position: static;
+        width: 100%;
+        max-width: 320px;
+        height: auto;
+        aspect-ratio: 242 / 154;
+    }
+    .share-box > div:last-child {
+        position: static;
+        width: auto;
+        max-width: 360px;
+    }
+ 
+    /* --- footer ---*/
+    .footer {
+        height: auto;
+        padding: 36px 24px 28px;
+    }
+    .footer-inner {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 28px 24px;
+    }
+    .social {
+        margin-top: 20px;
+    }
+    .footer li.phone {
+        position: static;
+        margin: 14px 0 0;
+        font-size: 18px;
+    }
+    .newsletter {
+        grid-column: 1 / -1;
+    }
+    .newsletter .row {
+        width: 100%;
+        max-width: 440px;
+    }
+    .copyright {
+        position: static;
+        max-width: 1060px;
+        margin: 28px auto 0;
+        text-align: left;
+    }
+}
+ 
+ 
+/* 
+   PHONE  (max-width: 640px)
+   */
+@media (max-width: 640px) {
+ 
+    /* ---------- top bar + nav ---------- */
+    .firstrow {
+        flex-direction: column;
+        padding: 8px 16px;
+        text-align: center;
+    }
+    .sec {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 6px 16px;
+    }
+    .secrow {
+        padding: 10px 16px;
+        justify-content: center;
+        gap: 10px;
+    }
+    .right {
+        width: 100%;
+        justify-content: center;
+        gap: 8px 14px;
+    }
+ 
+    /* ---------- hero + form bar ---------- */
+    .thirdrow {
+        height: 340px;
+        padding: 0 16px;
+        gap: 14px;
+    }
+    .thirdrow .text {
+        font-size: 22px;
+        max-width: 320px;
+    }
+    .fourthrow {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+        padding: 16px;
+    }
+    .fourthrow .text1:first-child {
+        grid-column: 1 / -1;
+    }
+    .fourthrow label {
+        flex: none;
+    }
+    .fourthrow input[type="text"] {
+        width: 100%;
+        padding: 11px 8px;
+        font-size: 16px;
+    }
+    .fourthrow .text1:last-child {
+        grid-column: 1 / -1;
+        text-align: center;
+        padding: 11px;
+        border-radius: 20px;
+        font-size: 11px;
+    }
+ 
+    /* ---------- four features ---------- */
+    .fifthrow {
+        grid-template-columns: 1fr;
+        gap: 32px;
+        padding: 36px 20px;
+    }
+ 
+    /* ---------- "Ready for a change" ---------- */
+    .sixthrow .photo {
+        height: 200px;
+    }
+    .text2 {
+        margin: -40px 16px 0;
+        padding: 22px 20px 70px;
+    }
+    .text2 h2 {
+        font-size: 18px;
+    }
+    .sixthrow input[type="submit"] {
+        margin-left: 36px;
+    }
+ 
+    /* ---------- review logos ---------- */
+    .seventhrow {
+        padding: 32px 16px;
+    }
+    .rating {
+        width: calc(50% - 10px);
+    }
+ 
+    /* ---------- testimonial ---------- */
+    .eighthrow {
+        padding: 0 16px 40px;
+    }
+    .eighthrow::before {
+        display: none;
+    }
+    .eighthrow .ph {
+        height: 240px;
+    }
+    .quote-card {
+        margin: -48px 12px 0 20px;
+        padding: 24px 20px 26px;
+    }
+    .quote-card blockquote {
+        font-size: 14px;
+        line-height: 22px;
+    }
+    .quote-card .stars {
+        font-size: 9px;
+    }
+    .quote-card cite {
+        font-size: 12px;
+    }
+    .eighthrow > .btn {
+        height: 40px;
+        font-size: 11px;
+    }
+ 
+    /* ---------- shared bits ---------- */
+    .btn {
+        height: 40px;
+        font-size: 11px;
+    }
+    .link-red {
+        font-size: 12px;
+    }
+    .section-title {
+        flex-wrap: wrap;
+        gap: 6px 14px;
+    }
+    .section-title .line {
+        display: none;
+    }
+    .section-title h2, .tenthrow h2 {
+        font-size: 24px;
+        white-space: normal;
+    }
+ 
+    /* ---------- gallery ---------- */
+    .ninthrow {
+        padding: 32px 16px 44px;
+    }
+    .gallery {
+        gap: 10px;
+    }
+ 
+    /* ---------- remodel options ---------- */
+    .tenthrow {
+        padding: 36px 16px;
+    }
+    .tenthrow .sub {
+        font-size: 12px;
+    }
+    .tabs {
+        margin: 28px 0;
+    }
+    .tab {
+        width: 33.33%;
+        font-size: 9.5px;
+        line-height: 12px;
+    }
+    .tab .icon {
+        width: 32px;
+        height: 32px;
+    }
+    .options-wrap .ph {
+        height: 220px;
+    }
+    .options-card {
+        margin: -40px 12px 0;
+        padding: 26px 20px;
+    }
+    .options-card h3 {
+        font-size: 18px;
+    }
+    .options-card .btn {
+        float: none;
+        display: inline-flex;
+        height: 38px;
+        font-size: 10px;
+    }
+    .options-card .link-red {
+        float: none;
+        display: block;
+        margin-top: 14px;
+        line-height: 1.4;
+    }
+ 
+    /* ---------- tips & trends ---------- */
+    .eleventhrow {
+        padding: 32px 16px;
+    }
+    .posts {
+        grid-template-columns: 1fr;
+        gap: 28px;
+    }
+    .post .cat {
+        font-size: 10px;
+        line-height: 14px;
+    }
+    .post h4 {
+        font-size: 16px;
+    }
+    .post .link-red {
+        font-size: 12px;
+    }
+ 
+    /* ---------- most trusted ---------- */
+    .twelfthrow {
+        padding: 32px 16px 44px;
+    }
+    .trusted-box {
+        padding: 26px 20px;
+    }
+    .trusted-box h2 {
+        font-size: 22px;
+    }
+    .badge {
+        font-size: 8px;
+    }
+ 
+    /* ---------- share the love ---------- */
+    .thirteenthrow {
+        padding: 0 16px 48px;
+    }
+    .share-box {
+        padding: 24px 20px;
+    }
+    .share-box h2 {
+        font-size: 22px;
+    }
+    .share-box p {
+        font-size: 14px;
+    }
+ 
+    /* ---------- footer ---------- */
+    .footer {
+        padding: 32px 16px 24px;
+    }
+    .footer-inner {
+        grid-template-columns: 1fr 1fr;
+        gap: 28px 16px;
+    }
+    .footer-inner > div:first-child {
+        grid-column: 1 / -1;
+    }
+    .footer .tag {
+        font-size: 11px;
+        line-height: 14px;
+    }
+    .footer li {
+        font-size: 11px;
+        line-height: 14px;
+        margin-bottom: 18px;
+    }
+    .footer li.phone {
+        font-size: 20px;
+        line-height: 26px;
+        margin-top: 10px;
+    }
+    .newsletter label {
+        font-size: 12px;
+        line-height: 16px;
+    }
+    .newsletter input[type="email"] {
+        font-size: 16px;
+        height: 44px;
+    }
+    .newsletter .go {
+        height: 44px;
+        font-size: 11px;
+    }
+    .copyright {
+        font-size: 11px;
+        line-height: 1.4;
+    }
+}
+ 
+
+ 
+
+
+        
+    </style>
+
+</head>
+<body>
+      
+
+    <div class="firstrow">
+        
+        <div class="first">
+        <div class="photo1"><img src="images/1ddf5783dd477a2d638c8c8885a94363.webp" alt="logo1"></div>
+        <div class="callno">Call us today 1-800-216-8256</div>
+        </div>
+        <div class="sec">
+        
+        <div class="photo1"><img src="images/pin-icon-vector-location-sign-in-flat-style-isolated-on-white-background-navigation-map-gps.webp" alt="logo2">Locations</div>
+        <div class="">Blog</div>
+        <div class="photo1"><img src="images/pin-icon-vector-location-sign-in-flat-style-isolated-on-white-background-navigation-map-gps.webp" alt="logo2"><span>Frachaise Opportunities</span> </div>
+        
+
+        </div>
+    </div>
+
+    <div class="secrow">
+
+        <div class="left">
+            <div><img src="/" alt="">RE.BATH</div>
+        </div>
+
+        <div class="right">
+
+        <div class="">DESIGN</div>
+        <div class="">SERVICES</div>
+        <div class="">PROCESS</div>
+        <div class="">ABOUT</div>
+        <div class="">CAREER</div>
+        <div class="">FREE CONSULTATION</div>
+
+        </div>
+    </div>
+
+    <div class="thirdrow">
+        <div class="photo"><img src="images/rebath-hero-clean.png" alt=""></div>
+        <div class="text">Effortless Bathroom Remodeling,
+                          from Start to Stunning.</div>
+       <input type="submit" value="FIND YOUR LOCAL RE-BATH">
+    </div>
+
+    <div class="fourthrow">
+        <div class="text1">FREE DESIGN CONSULTATION</div>
+        <label for="fname">
+        <input type="text" placeholder="Your first name.."></label>
+        <input type="text" placeholder="Your last name.."></label>
+        <input type="text" placeholder="Phone.."></label>
+        <input type="text" placeholder="Email.."></label>
+        <input type="text" placeholder="Zip Code.."></label>
+        <div class="text1">SUBMIT</div>  
+    </div>
+
+
+<div class="fifthrow">
+    <img src="images/Screenshot 2026-11-03 163843.png" alt="">
+    <div class="box"><h1>Free Design Service</h1>
+        <p>Re-Bath's design consultants help you
+                    find the perfect solutions and craft a
+                    design to transform your space into
+                    the bathroom of your dreams.</p>
+    
+    </div>
+    <div class="box">
+        <img src="images/Screenshot 2026-11-03 163811.png" alt="">
+        <h1>Free Design Service</h1>
+        <p>Re-Bath's design consultants help you
+                    find the perfect solutions and craft a
+                    design to transform your space into
+                    the bathroom of your dreams.</p>
+    </div>
+    <div class="box">
+        <img src="images/Screenshot 2026-11-03 163826.png" alt="">
+        <h1>Free Design Service</h1>
+        <p>Re-Bath's design consultants help you
+                    find the perfect solutions and craft a
+                    design to transform your space into
+                    the bathroom of your dreams.</p>
+
+    </div>
+    <div class="box">
+        <img src="images/Screenshot 2026-11-03 163851.png" alt="">
+        <h1>Free Design Service</h1>
+        <p>Re-Bath's design consultants help you
+                    find the perfect solutions and craft a
+                    design to transform your space into
+                    the bathroom of your dreams.</p>
+
+    </div>
+    
+    
+</div>
+  
+
+
+        <div class="sixthrow">
+            <div class="photo"><img src="/seclandingpage/images/rebath-ready-clean.png" alt=""></div>
+            <div class="text2"><h2>Ready for a change? You've
+                                    come to the right place.</h2>
+                                    <p>Bath will make the experience effortless. Our in-home
+                                        consultations, high-end product selections, fast
+                                        demos, and professional installation will take you
+                                        from design to done in no time-and with no stress.
+
+                                        Learn more about our effortless remodeling process
+                                        and how to get started.</p>
+                                                    
+            </div>
+            <input type="submit" value="FIND YOUR LOCAL RE-BATH">
+            
+            
+        </div>
+
+       
+ 
+<!--  Testimonial -->
+<div class="eighthrow">
+    <div class="ph"><img src="/seclandingpage/images/Gemini_Generated_Image_sgemiusgemiusgem.png" alt="Happy Re-Bath customers"></div>
+    <div class="quote-card">
+        <div class="stars">★★★★★</div>
+        <blockquote>"Quality craftsmanship, friendly knowledgeable staff and vast design selection!"</blockquote>
+        <cite>Sharon W.</cite>
+        <div class="dots"><span></span><span></span><span></span><span></span></div>
+    </div>
+    <div class="btn">See more reviews</div>
+</div>
+ 
+<!--  Gallery -->
+<div class="ninthrow">
+    <div class="section-title">
+        <h2>Bathroom Remodel Gallery</h2>
+        <div class="line"></div>
+        <a class="link-red" href="#">View our portfolio →</a>
+    </div>
+    <div class="gallery">
+        <div class="ph"><img src= "images/work3.png"></div>
+        <div class="ph"><img src="images/work1.png"></div>
+        <div class="ph"><img src="images/work3.png"></div>
+        <div class="ph"><img src="images/work1.png"></div>
+        <div class="ph"><img src="images/work3.png"></div>
+        <div class="ph"><img src="images/work1.png"></div>
+        <div class="ph"><img src="images/work3.png"></div>
+        <div class="ph"><img src="images/work1.png"></div>
+        </div>
+</div>
+ 
+<!-- Endless remodel options -->
+<div class="tenthrow">
+    <h2>Endless Bathroom Remodel Options</h2>
+    <p class="sub">No matter the size or scope of your project, Re-Bath has an affordable solution for you.</p>
+    <div class="tabs">
+        <div class="tab active"><div class="icon"></div>Complete bathroom remodel</div>
+        <div class="tab"><div class="icon"></div>Tub &amp; shower update</div>
+        <div class="tab"><div class="icon"></div>Barrier &amp; accessibility</div>
+    </div>
+    <div class="options-wrap">
+        <div class="ph"><img src="images/Gemini_Generated_Image_4o6c9i4o6c9i4o6c.png" alt="Complete bathroom remodel"></div>
+        <div class="options-card">
+            <h3>Effortless, affordable and fast complete bathroom remodeling.</h3>
+            <p>When you want a fresh, modern update, more storage space, additional safety features or all of the above, our team of complete bathroom remodeling professionals deliver your dream bathroom without the headache. We'll give you the style you want at the budget you need and never allow functionality or compromise beautiful design.</p>
+            <span class="btn">Watch Lane and Candies' story</span>
+            <a class="link-red" href="#">Learn more →</a>
+        </div>
+    </div>
+    </div>
+ 
+<!-- 11. Tips & Trends -->
+<div class="eleventhrow">
+        <div class="section-title">
+        <h2>Tips &amp; Trends</h2>
+        <div class="line"></div>
+        <a class="link-red" href="#">View all news →</a>
+        </div>
+            <div class="posts">
+            <div class="post">
+            <div class="ph"><img src="images/Screenshot 2026-11-12 023023.png" alt=""></div>
+            <div class="body">
+                <div class="cat">Complete remodel, ideas, tub &amp; shower update</div>
+                <h4>For the Love of Tranquility: 9 Tips for Creating Calm</h4>
+                <p>Our lives been doing a pandemic never seem to rise. Balanced work, chores, exercise, hobbies and family, but somehow it seems to be enough time to breathe and...</p>
+                <a class="link-red" href="#">Read more →</a>
+            </div>
+        </div>
+        <div class="post">
+            <div class="ph"><img src="images/Screenshot 2026-11-12 023011.png" alt=""></div>
+            <div class="body">
+                <div class="cat">Complete remodel, ideas, products, tub &amp; shower update</div>
+                <h4>Relationship Rescue: Solutions for 5 Common Couple Complaints</h4>
+                <p>You can't live with your partner and not to in love with their habits. When you share a bathroom, your partner's little quirks that you can't ignore can quickly become extreme...</p>
+                <a class="link-red" href="#">Read more →</a>
+            </div>
+        </div>
+        <div class="post">
+            <div class="ph"><img src="images/work3.png" alt=""></div>
+            <div class="body">
+                <div class="cat">Ideas, tub &amp; shower update</div>
+                <h4>Tub and Shower Trends for Your Next Bathroom Update</h4>
+                <p>"It is all in the details" – Christian Marclay. Remodeling a bathroom requires so many decisions. What color do I want the footings to be? What tile shapes should I pick...</p>
+                <a class="link-red" href="#">Read more →</a>
+            </div>
+             </div>
+            </div>
+</div>
+ 
+
+<div class="twelfthrow">
+    <div class="trusted-box">
+        <h2>The Nation's Most Trusted Bathroom Remodeler.</h2>
+        <div class="badges">
+            <div class="badge"><img src="images/logo1.png" alt=""></div>
+            <div class="badge"><img src="images/logo1.png" alt=""></div>
+            <div class="badge"><img src="images/logo3.png" alt=""></div>
+            <div class="badge"><img src="images/logo3.png" alt=""></div>
+            <div class="badge"><img src="images/logo4.png" alt=""></div>
+            <div class="badge"><img src="images/logo5.png" alt=""></div>
+            <div class="badge"><img src="images/logo5.png" alt=""></div>
+        </div>
+        </div>
+</div>
+ 
+<!-- Share the love -->
+<div class="thirteenthrow">
+        <div class="share-box">
+        <h2>If you love your bathroom, share the love</h2>
+        <div class="ph"><img src="images/Gemini_Generated_Image_4o6c9i4o6c9i4o6c.png" alt="Referral gift card"></div>
+        <div>
+            <p>Contact your local Re-Bath to find out about their referral programs.</p>
+            <span class="btn">Find your local Re-Bath</span>
+        </div>
+        </div>
+</div>
+ 
+  <!-- footer -->
+<div class="footer">
+    <div class="footer-inner">
+        <div>
+            <div class="logo">RE·BATH</div>
+            <div class="tag">Love to Know. Love to Love.</div>
+            <div class="social"><span></span><span></span><span></span><span></span></div>
+        </div>
+        <ul>
+            <li>"To-Dos 101" Magazine</li>
+            <li>FAQ</li>
+            <li>Privacy Policy</li>
+            <li>Location Directory</li>
+            <li>Franchise Opportunities</li>
+            <li>COVID-19 Update</li>
+        </ul>
+        <ul>
+            <li>Warranty</li>
+            <li>Cleaning &amp; Maintenance</li>
+            <li>Terms</li>
+            <li>Contact Us</li>
+            <li>Customer Review</li>
+            <li class="phone">1-800-216-8256</li>
+        </ul>
+        <div class="newsletter">
+            <label for="nl">Sign up for our newsletter for upcoming trends and deals</label>
+            <div class="row">
+                <input id="nl" type="email" placeholder="Email Address">
+                <div class="go">SUBMIT</div>
+            </div>
+        </div>
+            </div>
+        <div class="copyright">© Re-Bath, LLC. All Rights Reserved 2026</div>
+</div>
+ 
+
+        
+
+
+                
+    
+    
+
+</body>
+</html>
